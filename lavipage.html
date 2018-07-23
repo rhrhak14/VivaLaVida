@@ -1,0 +1,514 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<html>
+<head>
+    <title>♡럽라비♡</title>
+    <!-- 초기화 -->
+    <style>
+        * {
+            margin: 0; padding: 0;
+            font-family: 돋움, 'dotum', 'Malgun Gotic', sans-serif;
+        }
+
+        a { text-decoration: none; }
+        img { border: 0; }
+        li { list-style: none; }
+        html { background: #f7f5f5; }
+    </style>
+    <!-- 헤더 -->
+    <style>
+        #main-header {
+            height: 40px;
+            background: #faf7f7;
+
+            position: relative;
+        }
+
+        .header-search-form {
+            float: left;
+        }
+
+        .header-title {
+            position: absolute;
+            width: 200px; height:  40px;
+            left: 50%; margin-left: -75px;
+            background: url('logo.png');
+            background-repeat: no-repeat;
+
+            text-indent: -9999px;
+        }
+
+        .header-menu {
+            float: right;
+        }
+    </style>
+    <!-- 드롭다운 -->
+    <style>
+        .outer-menu {
+            float: left;
+            width: 100px; height: 20px;
+            line-height: 20px;
+            padding: 10px 0;
+            position: relative;
+            text-align: center;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            z-index: 9999;
+        }
+
+        .outer-menu:hover { background: #E1DFDF; }
+
+        .inner-menu {
+            display: none;
+            background: #FFFFFF;
+            margin-top: 10px;
+            width: 100%;
+
+            border-top: 1px solid #cccaca;
+            box-shadow: 0 2px 4px rgba(34,25,25,0.5);
+        }
+
+        .inner-menu a {
+            display: block;
+            padding: 5px 10px;
+            z-index: 5000;
+        }
+
+        .inner-menu a:hover { background: #E1DFDF; }
+    </style>
+    <!-- 네비게이션 메뉴 -->
+    <style>
+        #main-navigation {
+            height: 30px;
+            background: #faf7f7;
+            border-top: 1px solid #cfcaca;
+            box-shadow: 1px 3px 3px rgba(34, 25, 25, 0.4);
+        }
+
+        #main-navigation > ul {
+            overflow:hidden;
+            text-align: center;
+        }
+
+        #main-navigation > ul > li {
+            display: inline;
+
+            padding: 0 5px;
+
+            line-height: 30px;
+            font-size: 13px;
+            color: #524D4D;
+            text-shadow: 0 1px 1px white;
+        }
+
+        #main-navigation > ul > li:hover {
+            background: #E1DFDF;
+            border-radius: 2px;
+        }
+    </style>
+    <!-- 검색 양식 -->
+    <style>
+        .header-search-form {
+            height: 26px;
+            padding: 7px;
+        }
+
+        .input-search {
+            display: block;
+            float: left;
+
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCCC;
+            border-radius: 15px 0 0 15px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+
+            width: 120px; height: 24px;
+            padding: 0 0 0 10px;
+            font-size: 12px;
+            color: #555555;
+        }
+
+        .input-search:focus {
+            border-color: rgba(82, 168, 236, 0.8);
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-search-submit {
+            display: block;
+            float: left;
+
+            width: 50px; height: 26px;
+            border-radius: 0 15px 15px 0;
+            border: 1px solid #CCCCCC;
+
+            margin-left: -1px;
+
+            vertical-align: top;
+            display: inline-block;
+        }
+
+    </style>
+    <!-- 종이 스타일 -->
+    <style>
+        .paper {
+            width: 190px;
+            margin-top: 10px;
+            padding: 15px 15px 0;
+            font-size: 11px;
+            background: #FFFFFF;
+            box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+        }
+
+        .paper-content {
+            margin: 0 -15px;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #F2F0F0;
+
+            overflow: hidden;
+        }
+
+        .paper-description {
+            margin: 10px 0;
+        }
+
+        .paper-link {
+            display: block;
+            float: left;
+        }
+
+        .paper-text {
+            float: left;
+            width: 150px;
+            margin-left: 10px;
+        }
+    </style>
+    <!-- 섹션 -->
+    <style>
+        /* 미디어 쿼리를 지원하지 않는 웹 브라우저 */
+        #main-section {
+            width: 920px;
+            margin: 0 auto;
+        }
+
+        /* 3줄 */
+        @media (max-width: 919px) {
+            #main-section { width: 690px; }
+        }
+
+        /* 4줄 */
+        @media (min-width: 920px) and (max-width:1149px) {
+            #main-section { width: 920px; }
+        }
+
+        /* 5줄 */
+        @media (min-width:1150px) and (max-width:1379px) {
+            #main-section { width: 1150px; }
+        }
+
+        /* 6줄 */
+        @media (min-width:1380px) {
+            #main-section { width: 1380px; }
+        }
+    </style>
+    <!-- 라이트박스 -->
+    <style>
+        #darken-background {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%;
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        #lightbox {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+
+        .user-information {  overflow: hidden;  text-align: left; }
+        .user-information-image { float: left; width: 70px; }
+        .user-information-text { float: right; width: 620px;  }
+        .lightbox-splitter { margin: 10px 0; }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+    <script>
+        // 풀다운 메뉴
+        $(document).ready(function () {
+            // 풀다운 메뉴
+            $('.outer-menu').hover(function () {
+                $(this).find('.inner-menu').css('display', 'block');
+            }, function () {
+                $(this).find('.inner-menu').css('display', 'none');
+            });
+        });
+
+        // 페이지
+        $(document).ready(function () {
+            // 이미지 로드 확인
+            $('#main-section').imagesLoaded(function () {
+                // jQuery Masonry 플러그인 적용
+                $('#main-section').masonry({
+                    itemSelector: '.paper',
+                    columnWidth: 230,
+                    isAnimated: true
+                });
+            });
+});
+
+
+        // 라이트 박스
+        $(document).ready(function () {
+            function showLightBox() {
+                // 라이트박스를 보이게 합니다.
+                $('#darken-background').show();
+                $('#darken-background').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+
+            function hideLightBox() {
+                // 라이트박스를 안 보이게 합니다.
+                $('#darken-background').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+
+            // 라이트박스 제거 이벤트
+            $('#darken-background').click(function () {
+                hideLightBox();
+            });
+
+              // 클릭 이벤트 연결
+            $('.paper').click(function () {
+                showLightBox();
+            });
+
+            // 라이트박스 제거 이벤트 보조
+            $('#lightbox').click(function (event) {
+                event.stopPropagation()
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header id="main-header">
+        <div class="header-search-form">
+            <form>
+                <input type="search" class="input-search" />
+                <input type="submit" class="input-search-submit" value="검색" />
+            </form>
+        </div>
+        <h1 class="header-title">LuvLavi</h1>
+        <div class="header-menu">
+            <ul class="outer-menu">
+                <li>
+                    <a href="#">MEMBERS</a>
+                    <ul class="inner-menu">
+                        <li><a href="#">이지민(22)/할모니자기</a></li>
+                        <li><a href="#">강지윤(21)/강지콩자기</a></li>
+                        <li><a href="#">김도언(21)/잠자리장기</a></li>
+                        <li><a href="#">김지우(21)/여러분의자기</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+    </header>
+    <!-- 네비게이션 메뉴 -->
+    <nav id="main-navigation">
+        <ul>
+            <li><a href="#">비라비 in Jeju</a>
+            <li><a href="#">비라비 with Tripathy</a></li>
+            <li><a href="#">비라비's birthday</a></li>
+            <li><a href="#">Others</a></li>
+        </ul>
+    </nav>
+    <!-- 본문 영역 -->
+    <section id="main-section">
+
+      <div class="paper">
+          <div class="paper-holder">
+              <a><img width="190" src="2.jpg" /></a>
+          </div>
+          <p class="paper-description">♡ 라비의 시작, 인문학 스터디 ♡</p>
+          <div class="paper-content">
+              <p class="paper-text">'비라비'라는 이름도, 구성원도. 인문학 스터디에서부터 시작했어요. 이것저것 벌려놓고 보는 김지우의 스터디 제안과 장기의 수락, 강지콩의 섭외와 할머니의 (갑작스런) 지원으로 결성된 럽라비. 이렇게 좋은 사람들을 만나건 축복이에요. </p>
+          </div>
+      </div>
+
+      <div class="paper">
+          <div class="paper-holder">
+              <a><img width="190" src="17.jpg") /></a>
+          </div>
+          <p class="paper-description">♡ 지우's BIRTHDAY' ♡</p>
+          <div class="paper-content">
+              <p class="paper-text"> '생일축하'라는 것에 크게 의미를 두지 않았던 사람에게, 소중한 추억을 선물해준 사랑스러운 라비들. 감사해요.</p>
+          </div>
+      </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="1.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 지콩&지우 in Jeju island ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 라비들의 공식적 첫 여행지, 제주도. 아주아주 행복했어요.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="9.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 in Jeju island ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 제주도. 소원 나무에서 빈 소원 다들 이루어졌나요? 물론 전 아직이랍니다. 사실 소원을 조금 많이 빌었었어요. 욕심쟁이 김지우. </p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="10.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 in Jeju island ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 제주도. 색감이 너무 예뻤던 더럭분교. 울 강지콩만 점프샷 실패:-)</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="11.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 in Jeju island ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 제주도. LOVE 만들기. 장기의 'E'가 너무나도 인상적인 사진.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="12.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 in Jeju island ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 제주도. 이 사진은 정말 급박하게 쌓은 머리들과 할모니의 발끝이 POINT. (지우's sister said that 도언이 정수리냄새 왜 맡아. 너희 사귀니?')색감이 너무 예뻤던 더럭분교. 강지콩만 점프샷 실패:-)</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="16.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 and 그대에게 ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 이 사진은 대체 누가 찍어줬을까요. 누군지 정말 충격적이네요. 그래도 팔라비의 데뷔무대이자 할머니의 첫 단장무대! 완지기민곡을 선택한 것은 정말 신의 한 수.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="15.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 in Jeju island ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 제주도. 내가 본 성인의 표정 중 가장 해맑은 표정. 장기가 이렇게 행복할 수 있다면 내가 매일 업어줄게. </p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="21.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 and 교외OR ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 주체기수가 되어 처음으로 섰던 커다란 무대. 라비들과 함께라서 너무나도 행복했따. 할모니 내년에 만두꾸워주세요. 강지콩은 보끔밥 해주세요. </p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="20.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 and 도언 집들이 ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 최고의 선물 최고의 손님 최고의 집주인. 너무나도 뿌듯한 짱구원피스&핑크퐁&종량제봉투&고양이연어&연어초밥 </p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="19.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 and TROS ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 급박한 준비 & 스턴트 & 커다란 무대 & 오랜 공연시간의 콤보들로 라비들 모두가 힘들었지만, 무대에 설 수 있다는 것만으로도 소중했던 TROS. </p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="7.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 지밍's BIRTHDAY (생신잔23) ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 정말 정성을 다해 준비했던 할모니 생일. 라비들과 함께 보내는 시간과 우리가 나누는 대화들은 감동이고 축복이야. </p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="23.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 지콩's BIRTHDAY' ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 울 강지콩 생일. 짧아서 아쉬웠지만, 그래서 더 소중했던 지콩이를 위한 시간. 어떤 소원을 빌었을까요. </p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="22.jpg") /></a>
+            </div>
+            <p class="paper-description">♡ 비라비 with 단복 ♡</p>
+            <div class="paper-content">
+                <p class="paper-text"> 그대들은 최고야. </p>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- 라이트박스 -->
+    <div id="darken-background">
+        <div id="lightbox">
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="14.jpg" />
+                </a>
+                <div class="user-information-text">
+                    <h3>From. 지우</h3>
+                    <p>클릭하면 사진이 각각 확대되게 만들고 싶은데 아직 능력 부족. 그래서 이 사진만 나와요. FOR 장기. (끄고 싶으면 어두운 부분을 클릭하세용)</p>
+                </div>
+            </div>
+            <hr class="lightbox-splitter" />
+        </div>
+    </div>
+</body>
+</html>
